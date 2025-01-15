@@ -1,15 +1,22 @@
 <template>
-	<h2>보간법</h2>
+	<div>
+		<p>{{ message }}</p>
+		<button v-on:click="addMessage">click</button>
+	</div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { reactive } from 'vue';
 
 export default {
 	setup() {
-		const message = ref('안녕하세요!');
+		let message = reactive('Hello vue!');
+		const addMessage = () => {
+			message = message + '!';
+		};
 		return {
 			message,
+			addMessage,
 		};
 	},
 };
